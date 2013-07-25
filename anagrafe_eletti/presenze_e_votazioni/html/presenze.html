@@ -12,24 +12,15 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     </title>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="visualization.js"></script>
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['corechart']});
     </script>
     <script type="text/javascript">
-      function drawVisualization() {
-        // Create and populate the data table.
-    	  var wrapper = new google.visualization.ChartWrapper({
-    		    chartType: 'ColumnChart',
-    		    dataTable: [nomi_presenze_totali,presenze_presenze_totali],
-    		    options: {'title': 'Presenze consiglieri sul totale',
-    		    	'legend':'none'},
-    		    containerId: 'visualization1'
-    		  });
-    		  wrapper.draw();
-      }
-      
-
-      google.setOnLoadCallback(drawVisualization);
+    google.setOnLoadCallback(drawVisualization1);
+    google.setOnLoadCallback(drawVisualization2);
+    google.setOnLoadCallback(drawVisualization3);
+    google.setOnLoadCallback(drawVisualization4);
     </script>
   </head>
   <body style="font-family: Arial;border: 0 none;">
