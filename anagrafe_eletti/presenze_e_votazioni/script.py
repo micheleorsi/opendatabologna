@@ -3,6 +3,7 @@ import json
 
 conn = sqlite3.connect('presenze_e_votazioni.db')
 
+# presenze
 nomi_presenze_totali = [''];
 presenze_presenze_totali = [''];
 
@@ -31,6 +32,16 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
     nomi_presenze_consiglio_straordinario.append(row[0])
     presenze_presenze_consiglio_straordinario.append(row[1])
 
+
+# votazioni
+nomi_votazioni_totali = [''];
+presenze_votazioni_totali = [''];
+
+for row in conn.execute('select Nominativo,SUM(NumVotazioni) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" GROUP BY Progressivo ORDER BY TOTALE DESC'):
+    nomi_votazioni_totali.append(row[0])
+    presenze_votazioni_totali.append(row[1])
+
+
 conn.close()
 
 with open('html/data_presenze.js', 'w') as outfile:
@@ -54,3 +65,9 @@ with open('html/data_presenze.js', 'w') as outfile:
     outfile.write(';\npresenze_presenze_consiglio_straordinario=')
     json.dump(presenze_presenze_consiglio_straordinario, outfile)
     outfile.write(';')
+    
+with open('html/data_votazioni.js', 'w') as outfile:
+    outfile.write('nomi_votazioni_totali=')
+    json.dump(nomi_votazioni_totali, outfile)
+    outfile.write(';\npresenze_votazioni_totali=')
+    json.dump(presenze_votazioni_totali, outfile)
