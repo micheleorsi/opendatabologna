@@ -33,7 +33,7 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
 
 conn.close()
 
-with open('html/data.js', 'w') as outfile:
+with open('html/data_presenze.js', 'w') as outfile:
     outfile.write('nomi_presenze_totali=')
     json.dump(nomi_presenze_totali, outfile)
     outfile.write(';\npresenze_presenze_totali=')
