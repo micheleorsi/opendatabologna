@@ -1,0 +1,41 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Create and populate the data table.
+    	  var wrapper = new google.visualization.ChartWrapper({
+    		    chartType: 'ColumnChart',
+    		    dataTable: [nomi_presenze_totali,presenze_presenze_totali],
+    		    options: {'title': 'Presenze consiglieri sul totale',
+    		    	'legend':'none'},
+    		    containerId: 'visualization1'
+    		  });
+    		  wrapper.draw();
+      }
+      
+
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization1" style="width: 800px; height: 400px;"></div>
+    <div id="visualization2" style="width: 800px; height: 400px;"></div>
+    <div id="visualization3" style="width: 800px; height: 400px;"></div>
+    <div id="visualization4" style="width: 800px; height: 400px;"></div>
+  </body>
+</html>
