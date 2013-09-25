@@ -3,6 +3,8 @@ import json
 
 conn = sqlite3.connect('presenze_e_votazioni.db')
 
+# presenze suddivise per mese
+
 # presenze
 nomi_presenze_totali = [''];
 presenze_presenze_totali = [''];
