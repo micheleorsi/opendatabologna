@@ -7,6 +7,7 @@ conn = sqlite3.connect('presenze_e_votazioni.db')
 nomi_presenze_totali = [''];
 presenze_presenze_totali = [''];
 
+# presenze totali
 for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" GROUP BY Progressivo ORDER BY TOTALE DESC'):
     nomi_presenze_totali.append(row[0])
     presenze_presenze_totali.append(row[1])
@@ -14,6 +15,7 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
 nomi_presenze_question_time = [''];
 presenze_presenze_question_time = [''];
 
+# presenze consiglio giorno 5
 for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" AND strftime("%w",Data) == "5" GROUP BY Progressivo ORDER BY TOTALE DESC'):
     nomi_presenze_question_time.append(row[0])
     presenze_presenze_question_time.append(row[1])
@@ -21,6 +23,7 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
 nomi_presenze_consiglio_ordinario = [''];
 presenze_presenze_consiglio_ordinario = [''];
 
+# presenze consiglio giorno 1
 for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" AND strftime("%w",Data) == "1" GROUP BY Progressivo ORDER BY TOTALE DESC'):
     nomi_presenze_consiglio_ordinario.append(row[0])
     presenze_presenze_consiglio_ordinario.append(row[1])
@@ -28,6 +31,7 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
 nomi_presenze_consiglio_straordinario = [''];
 presenze_presenze_consiglio_straordinario = [''];
 
+# altre presenze
 for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" AND strftime("%w",Data) != "1" AND strftime("%w",Data) != "5" GROUP BY Progressivo ORDER BY TOTALE DESC'):
     nomi_presenze_consiglio_straordinario.append(row[0])
     presenze_presenze_consiglio_straordinario.append(row[1])
@@ -37,6 +41,7 @@ for row in conn.execute('select Nominativo,COUNT(Presenza) AS TOTALE from PRESEN
 nomi_votazioni_totali = [''];
 presenze_votazioni_totali = [''];
 
+# totale votazioni
 for row in conn.execute('select Nominativo,SUM(NumVotazioni) AS TOTALE from PRESENZE_E_VOTAZIONI WHERE Presenza = "P" GROUP BY Progressivo ORDER BY TOTALE DESC'):
     nomi_votazioni_totali.append(row[0])
     presenze_votazioni_totali.append(row[1])
