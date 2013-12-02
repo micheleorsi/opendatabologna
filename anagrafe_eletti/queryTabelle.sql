@@ -1,14 +1,14 @@
 -- presenze suddivise per mese 
-select progressivo, nominativo, COUNT(presenza) AS TOTALE_PRESENZE 
+select Progressivo, Nominativo, COUNT(Presenza) AS TOTALE_PRESENZE 
 from PRESENZE_VOTAZIONI 
-WHERE presenza = "P" AND strftime("%w",data) == "1" AND strftime("%Y-%m",data) == "2011-09" 
-GROUP BY progressivo, strftime("%Y-%m",data) ORDER BY nominativo ASC;
+WHERE Presenza = "P" AND strftime("%w",Data) == "1" AND strftime("%Y-%m",Data) == "2011-09" 
+GROUP BY progressivo, strftime("%Y-%m",data) ORDER BY Nominativo ASC;
 
 -- presenze suddivise per mese
-select progressivo, nominativo, COUNT(presenza) AS TOTALE_PRESENZE, strftime("%Y-%m",data) AS PERIOD 
+select Progressivo, Nominativo, COUNT(Presenza) AS TOTALE_PRESENZE, strftime("%Y-%m",Data) AS PERIOD 
 from PRESENZE_VOTAZIONI 
-WHERE presenza = "P" 
-GROUP BY PERIOD,progressivo ORDER BY PERIOD ASC;
+WHERE Presenza = "P" 
+GROUP BY PERIOD,Progressivo ORDER BY PERIOD ASC;
 
 -- presenze totali 
 select progressivo, nominativo, COUNT(presenza) AS TOTALE_PRESENZE 

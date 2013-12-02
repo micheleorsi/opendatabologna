@@ -1,2 +1,2 @@
-Date:
+Data:
 value.split("/")[2]+"-"+value.split("/")[1]+"-"+value.split("/")[0]
