@@ -10,7 +10,7 @@ Votazioni integer,
 Percentuale integer);
 -- importazione dati da file 'elenco_eletti.csv'
 .separator ","
-.import Presenze_Votazioni.csv PRESENZE_VOTAZIONI
+.import anagrafe_eletti/presenze_e_votazioni/cleaned/Presenze_Votazioni.csv PRESENZE_VOTAZIONI
 
 -- creazione tabella dal file 'Elenco delle Elette e degli Eletti 2013 (Versione 2)' 
 -- http://dati.comune.bologna.it/node/606
