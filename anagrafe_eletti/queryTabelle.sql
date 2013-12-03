@@ -39,3 +39,9 @@ select Nominativo, SUM(Votazioni) AS VOTAZIONI
 from PRESENZE_VOTAZIONI
 WHERE Presenza = "P" AND strftime("%w",Data) == "1" 
 GROUP BY Progressivo ORDER BY VOTAZIONI DESC;
+
+-- ordini del giorno suddivisi per mese
+--select Progressivo, Nominativo, COUNT(Presenza) AS TOTALE_PRESENZE, strftime("%Y-%m",Data) AS PERIOD 
+--from PRESENZE_VOTAZIONI 
+--WHERE Presenza = "P" 
+--GROUP BY PERIOD,Progressivo ORDER BY PERIOD,Progressivo ASC;
