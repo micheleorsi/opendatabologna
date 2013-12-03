@@ -12,6 +12,23 @@ Percentuale integer);
 .separator ","
 .import anagrafe_eletti/presenze_e_votazioni/cleaned/Presenze_Votazioni.csv PRESENZE_VOTAZIONI
 
+-- creazione tabella dai file  
+-- http://dati.comune.bologna.it/node/XXX
+DROP TABLE DELIBERE_ODG;
+create table DELIBERE_ODG(Delibera text, 
+Tipologia text, 
+DataConsiglio text,
+Oggetto text, 
+NumPG text, 
+AnnoPG integer,
+DataPubblicazione text,
+Altri text,
+Testo text,
+Consigliere text);
+-- importazione dati da file 'elenco_eletti.csv'
+.separator ","
+.import anagrafe_eletti/delibere_e_odg_consiglio_comunale/cleaned/Delibere_OdG.csv DELIBERE_ODG
+
 -- creazione tabella dal file 'Elenco delle Elette e degli Eletti 2013 (Versione 2)' 
 -- http://dati.comune.bologna.it/node/606
 -- DROP TABLE ELENCO_ELETTI;
