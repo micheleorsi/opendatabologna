@@ -40,3 +40,5 @@ Quartiere text);
 -- importazione dati da file 'elenco_eletti.csv'
 .separator ","
 .import anagrafe_eletti/elenco_eletti_606/cleaned/Elenco_Eletti.csv ELENCO_ELETTI
+
+-- Delibere assessori: http://dati.comune.bologna.it/node/600
